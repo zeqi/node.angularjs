@@ -1,0 +1,56 @@
+﻿<div class="tabGroup">
+    <div ng-if="navChoose.arr.length>0">
+        <div class="h_tabListBox clearfix" tab-move-handler>
+            <span ng-show="navChoose.canShow && navChoose.arr.length>1" class="h_leftBtn  pull-left"><span class="glyphicon glyphicon-chevron-left"></span></span>
+            <div class="h_tabout pull-left clearfix">
+                <ul class="h_tab_nav_tit h_tabList clearfix" role="tablist" id="callCenter_tabs" ng-style="navChoose.tabUlWidth">
+                    <li role="presentation" ng-click="navChoose.choose($event,item)" ng-class="{true: 'active', false: ''}[item.url==navChoose.checked]" ng-repeat="item in navChoose.arr" on-finish-render="tabsFinish">
+                        <a href="#{{item.url | accessPath}} " role="tab" data-toggle="tab">{{item.name}}</a>
+                        <button type="button" ng-click="navChoose.closeTab(item)" class="close tabCloseBtn" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    </li>
+                </ul>
+            </div>
+            <span ng-show="navChoose.canShow && navChoose.arr.length>1" class="h_rightBtn   pull-right"><span class="glyphicon glyphicon-chevron-right"></span></span>
+
+        </div>
+        <div class="tab-content" id="callCenter_content">
+            <div id="loadding"></div>
+            <div role="tabpanel" class="callCenter-table-panel  tab-pane" ng-class="{true: 'active', false: ''}[item.url==navChoose.checked]" id="{{item.url | accessPath}} " ng-include='item.url' ng-repeat="item in navChoose.arr" on-finish-render="tabPlanelOver"> </div>
+        </div>
+    </div>
+    <div ng-if="navChoose.arr.length==0" ng-controller="Settings_Announcement" on-finish-render="isSettings">
+        <!--<script src="~/Scripts/Settings/announcement.js"></script>-->
+        <div class="announcement_Group clearfix">
+            <div class="announcement_contBox">
+                <div class="announcement_contMsg">
+                    <p class="anCont_tit">公告<small>Notice</small></p>
+
+                    <div ng-show="settingItems.length>0" class="settingItemsBox">
+                        <div class="annMentCont" ng-repeat="item in settingItems">
+                            <div class="anMentCont_tit">
+                                <p class="clearfix">
+                                    <span class="substr" ng-bind="item.Title"></span><small>
+                                        发布人：{{item.CreaterName }} &nbsp;
+                                        {{item.CreateTime | getTime}}
+                                    </small>
+                                </p>
+                            </div>
+                            <div class="anMentCont_msg">
+                                {{item.Content}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-show="settingItems.length==0" class="annouNouCont clearfix"><span class="annouLine"></span><p class="annnouNoMsg">暂无公告</p><span class="annouLine"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+

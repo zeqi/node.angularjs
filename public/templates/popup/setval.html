@@ -1,0 +1,27 @@
+<style type="text/css">
+
+</style>
+
+<div>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">设置用户信名</h4>
+    </div>
+
+
+    <div class="modal-body">
+        <div class="queryGroup">
+            <form class="form-inline  p1form-inline">
+                <div class="form-group">
+                    <label>姓名:</label>
+                    <input type="text" class="form-control input-sm" placeholder="用户姓名"
+                           ng-model="username" style="width: 200px;" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer" >
+        <button type="button" class="btn btn-default btn-sm" ng-click="cancel()">取消</button>
+        <button type="button" class="btn btn-success btn-sm" ng-click="save()">确定</button>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="/javascripts/bootstrap/dist/css/bootstrap.min.css"/>
+    <script src="/javascripts/jquery/dist/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="http://<%= socketServer %>/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io.connect('http://<%= socketServer %>/');
+        socket.on('news', function (data) {
+            console.log(data);
+            socket.emit('my other event', {my: 'data'});
+        });
+    </script>
+</head>
+<body ng-controller="home_home">
+<script src="/javascripts/requirejs/require.js" data-main="/javascripts/app/main.js"></script>
+
+<div>
+    <a href="#/">默认页面</a>
+    <a href="#/home/child">子页面</a>
+</div>
+
+<div class="viewCont" ng-view></div>
+</body>
+</html>

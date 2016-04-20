@@ -1,0 +1,32 @@
+<style type="text/css">
+    [stab="user"]{
+        width: 200px;
+        margin-top: 20px;
+    }
+    [stab="user"] tr>th{
+        background-color: #9d9d9d;
+        text-align: center;
+    }
+    [stab="user"] tr>td:last-child{
+        text-align: right;
+    }
+</style>
+<h1>我是子页面child</h1>
+<input type="button" ng-click="showDialog()" value="弹窗传值"/>
+<input type="text" ng-model="username"/>
+<div ng-bind="username | getStatus"></div>
+
+<br/>
+<input type="button" value="获取用户" ng-click="getAllUsers()">
+<input type="button" value="获取当前用户" ng-click="getUser(1)">
+<table stab="user">
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+    </tr>
+    <tr ng-repeat="item in userlist">
+        <td ng-bind="item.name"></td>
+        <td ng-bind="item.age"></td>
+    </tr>
+</table>
+<table></table>
