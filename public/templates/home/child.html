@@ -1,13 +1,15 @@
 <style type="text/css">
-    [stab="user"]{
+    [stab="user"] {
         width: 200px;
         margin-top: 20px;
     }
-    [stab="user"] tr>th{
+
+    [stab="user"] tr > th {
         background-color: #9d9d9d;
         text-align: center;
     }
-    [stab="user"] tr>td:last-child{
+
+    [stab="user"] tr > td:last-child {
         text-align: right;
     }
 </style>
@@ -21,10 +23,12 @@
 <input type="button" value="获取当前用户" ng-click="getUser(1)">
 <table stab="user">
     <tr>
+        <th>编号</th>
         <th>姓名</th>
         <th>年龄</th>
     </tr>
-    <tr ng-repeat="item in userlist">
+    <tr ssid="{{$index}}" ng-repeat="item in userlist">
+        <td>{{$index}}</td>
         <td ng-bind="item.name"></td>
         <td ng-bind="item.age"></td>
     </tr>
