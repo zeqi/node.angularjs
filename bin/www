@@ -90,12 +90,22 @@ function onListening() {
 }
 
 
+/*var io = require('socket.io')(server);
 
-var io = require('socket.io')(server);
+ io.on('connection', function (socket) {
+ socket.emit('news', { hello: 'world' });
+ socket.on('my other event', function (data) {
+ console.log(data);
+ });
+ });*/
 
-io.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-});
+/*
+var common = require('zeqi.common');
+
+var Broker = common.IM.Broker;
+
+var topic = 'tianjing';
+var broker = Broker.init('zeqi.websocket', server);
+var producer = broker.producerFact;
+var consumer = broker.createConsumer(topic);
+var beijing_consumer = broker.createConsumer('beijing');*/
